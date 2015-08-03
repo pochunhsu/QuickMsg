@@ -21,7 +21,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/emailSignup"
+        android:layout_below="@+id/usernameSignup"
         android:id="@+id/usernameSignup"
         android:inputType="none"
         android:textSize="30sp"
@@ -31,7 +31,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/usernameSignup"
+        android:layout_below="@+id/passwordSignup"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordSignup"
