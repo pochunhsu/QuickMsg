@@ -5,14 +5,17 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.parse.ParseAnalytics;
-import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 
 public class MainActivity extends AppCompatActivity{
+
+    public static final String TAG = MainActivity.class.getSimpleName();
 
      /** a FragmentPagerAdapter derivative, which will keep every
        loaded fragment in memory. If this becomes too memory intensive, it
@@ -29,14 +32,13 @@ public class MainActivity extends AppCompatActivity{
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser == null){
+            goto_login();
+        }else{
+            Log.i(TAG, currentUser.getUsername());
+        }
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        //startActivity(intent);
 
 
         // Create the adapter that will return a fragment for each of the three
@@ -51,6 +53,13 @@ public class MainActivity extends AppCompatActivity{
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+    }
+
+    private void goto_login() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
@@ -68,8 +77,9 @@ public class MainActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            ParseUser.logOut();
+            goto_login();
         }
 
         return super.onOptionsItemSelected(item);

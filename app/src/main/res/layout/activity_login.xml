@@ -26,20 +26,20 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/usernameSignup"
+            android:id="@+id/usernameLogin"
             android:hint="@string/username_hint"
-            android:textSize="40sp"
+            android:textSize="25sp"
             android:textColorHint="@android:color/darker_gray"
             android:layout_alignParentTop="true"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/passwordEdit"
+            android:id="@+id/passwordLogin"
             android:hint="@string/password_hint"
-            android:textSize="40sp"
+            android:textSize="25sp"
             android:textColorHint="@android:color/darker_gray"
-            android:layout_below="@+id/usernameSignup"
+            android:layout_below="@+id/usernameLogin"
             android:inputType="textPassword"/>
 
         <Button
@@ -47,8 +47,8 @@
             android:layout_height="wrap_content"
             android:text="@string/LoginLabel"
             android:id="@+id/loginButton"
-            android:textSize="30sp"
-            android:layout_below="@+id/passwordEdit"
+            android:textSize="22sp"
+            android:layout_below="@+id/passwordLogin"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"/>
 
@@ -56,12 +56,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Sign Up"
+            android:text="@string/sign_up_label"
             android:id="@+id/signupText"
             android:layout_below="@+id/loginButton"
-            android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
 

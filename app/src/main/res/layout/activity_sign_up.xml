@@ -15,27 +15,27 @@
         android:layout_centerVertical="true"
         android:inputType="textEmailAddress"
         android:id="@+id/emailSignup"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:hint="@string/email_hint"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/usernameSignup"
+        android:layout_below="@+id/emailSignup"
         android:id="@+id/usernameSignup"
         android:inputType="none"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textIsSelectable="false"
         android:hint="@string/username_hint"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordSignup"
+        android:layout_below="@+id/usernameSignup"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordSignup"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:hint="@string/password_hint"/>
 
     <Button
@@ -46,6 +46,6 @@
         android:layout_below="@+id/passwordSignup"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="25sp"/>
+        android:textSize="22sp"/>
 
 </RelativeLayout>
